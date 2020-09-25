@@ -1,0 +1,4 @@
+include ':infra'
+include ':core'
+include ':app'
+rootProject.name = "WeBooks"
