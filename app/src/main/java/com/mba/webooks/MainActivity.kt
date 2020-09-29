@@ -1,18 +1,22 @@
 package com.mba.webooks
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mba.webooks.ui.main.MainFragment
+import com.mba.basescreens.BaseActivity
+import com.mba.utils.ScreenUtils
+import com.mba.webooks.loadingscreen.LoadingFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
-        }
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.container, LoadingFragment())
+//                .commitNow()
+//        }
+
+
+        ScreenUtils.openScreen(LoadingFragment::class.java, this)
     }
 }

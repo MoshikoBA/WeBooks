@@ -1,4 +1,4 @@
-package com.mba.webooks.ui.main
+package com.mba.webooks.loadingscreen
 
 import androidx.lifecycle.ViewModel
 

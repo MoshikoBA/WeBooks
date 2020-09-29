@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mba.basescreens.BaseActivity
+import com.mba.basescreens.BaseScreen
 
 object ScreenUtils {
 
@@ -31,15 +32,15 @@ object ScreenUtils {
         baseActivity.startActivity(intent)
     }
 
-    fun openDialog(fragment: Class<out BaseDialog>, fragmentActivity: FragmentActivity, bundle: Bundle? = null) {
-        val bottomSheetDialogFragment = fragment.newInstance() as BottomSheetDialogFragment
-        bottomSheetDialogFragment.arguments = bundle
-
-        val beginTransaction = fragmentActivity.supportFragmentManager.beginTransaction()
-        beginTransaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down, R.anim.slide_up, R.anim.slide_down)
-
-        bottomSheetDialogFragment.show(beginTransaction, fragment.simpleName)
-    }
+//    fun openDialog(fragment: Class<out BaseDialog>, fragmentActivity: FragmentActivity, bundle: Bundle? = null) {
+//        val bottomSheetDialogFragment = fragment.newInstance() as BottomSheetDialogFragment
+//        bottomSheetDialogFragment.arguments = bundle
+//
+//        val beginTransaction = fragmentActivity.supportFragmentManager.beginTransaction()
+//        beginTransaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down, R.anim.slide_up, R.anim.slide_down)
+//
+//        bottomSheetDialogFragment.show(beginTransaction, fragment.simpleName)
+//    }
 
     private fun buildIntent(clearStack: Boolean, intent: Intent, bundle: Bundle?, fragment: Class<out BaseScreen>) {
         if (clearStack) {

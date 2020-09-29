@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeBooks</string>
+    <string name="my_books">My Books</string>
 </resources>

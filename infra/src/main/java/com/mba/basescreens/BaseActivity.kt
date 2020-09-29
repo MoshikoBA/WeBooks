@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import com.mba.extensions.R
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     private var dialogFragment: DialogFragment? = null
 
@@ -17,8 +17,14 @@ class BaseActivity : AppCompatActivity() {
         intent?.extras?.let {
             it.getString("frag")?.let { fragmentName ->
                 val screenClass = (Class.forName(fragmentName) as Class<out BaseScreen>)
-                dialogFragment = screenClass.newInstance() as DialogFragment
-                dialogFragment?.show(supportFragmentManager, fragmentName)
+                dialogFragment = screenClass.newInstance() as? DialogFragment
+
+                supportFragmentManager.beginTransaction().add(
+                    R.id.fragmentContainer, dialogFragment!!
+                ).commit()
+
+
+                //dialogFragment?.show(supportFragmentManager, fragmentName)
             }
         }
     }
@@ -27,5 +33,4 @@ class BaseActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         dialogFragment?.onActivityResult(requestCode, resultCode, data)
     }
-
 }

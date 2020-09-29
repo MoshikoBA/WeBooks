@@ -13,10 +13,10 @@ fun View.setPaddingForSidesDP(
     bottom: Int? = null
 ) {
     setPadding(
-        left ?: paddingLeft,
-        top ?: paddingTop,
-        right ?: paddingRight,
-        bottom ?: paddingBottom
+          left?.let { ViewConsts.dp(it) } ?: paddingLeft,
+        top?.let { ViewConsts.dp(it) } ?: paddingTop,
+        right?.let { ViewConsts.dp(it) } ?: paddingRight,
+        bottom?.let { ViewConsts.dp(it) } ?: paddingBottom
     )
 }
 
@@ -28,10 +28,24 @@ fun View.setMarginsForSidesDP(
 ) {
     val lp = layoutParams as ViewGroup.MarginLayoutParams
     setMargins(
-        left ?: lp.leftMargin,
-        top ?: lp.topMargin,
-        right ?: lp.rightMargin,
-        bottom ?: lp.bottomMargin
+        left?.let { ViewConsts.dp(it) } ?: lp.leftMargin,
+        top?.let { ViewConsts.dp(it) } ?: lp.topMargin,
+        right?.let { ViewConsts.dp(it) } ?: lp.rightMargin,
+        bottom?.let { ViewConsts.dp(it) } ?: lp.bottomMargin
+    )
+}
+
+fun View.setVerticalMarginDP(margin: Int) {
+    setMarginsForSidesDP(
+        top = margin,
+        bottom = margin
+    )
+}
+
+fun View.setHorizontalMarginDP(margin: Int) {
+    setMarginsForSidesDP(
+        left = margin,
+        right = margin
     )
 }
 

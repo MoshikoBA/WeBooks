@@ -25,7 +25,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.mba.extensions.R
-import com.mba.extensions.setPaddingOnAllSides
+import com.mba.extensions.setHorizontalMarginDP
+import com.mba.extensions.setPaddingOnAllSidesDP
 import com.mba.extensions.showOrGone
 import com.mba.toolbar.ActionButton
 import kotlinx.android.synthetic.main.fragment_base.*
@@ -37,11 +38,19 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
     val baseActivity: BaseActivity
         get() = activity as BaseActivity
 
+    override fun getContext(): Context {
+        return baseActivity.baseContext
+    }
+
     companion object {
         const val PERMISSION_REQUEST_CODE = 1
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val baseView = inflater.inflate(R.layout.fragment_base, container, false) as ViewGroup
         val view = LayoutInflater.from(context).inflate(contentViewLayoutResId, null)
 
@@ -55,7 +64,7 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        back.showOrGone(showBackButton())
+        view.back.showOrGone(showBackButton())
         back?.setOnClickListener { finish() }
         getColorDrawable()?.let {
             back?.imageTintMode = PorterDuff.Mode.SRC_IN
@@ -124,13 +133,18 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
 
     protected fun checkPermission(): Boolean {
         return (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(requireContext(),
-            Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED)
     }
 
     protected fun requestPermission() {
-        ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA),
-            PERMISSION_REQUEST_CODE)
+        ActivityCompat.requestPermissions(
+            requireActivity(),
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA),
+            PERMISSION_REQUEST_CODE
+        )
     }
 
     protected fun initToolbarButtons() {
@@ -143,7 +157,7 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
                     iv.background = getDrawable(R.drawable.ripple)
                     iv.adjustViewBounds = true
                     iv.setOnClickListener(it.callback)
-                    iv.setPaddingOnAllSides(10)
+                    iv.setPaddingOnAllSidesDP(10)
                     actionBarButtonsContainer.addView(iv)
                 }
 
@@ -154,8 +168,8 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
                     tv.background = getDrawable(R.drawable.ripple)
                     tv.setTextColor(Color.parseColor("#004A8E"))
                     tv.setOnClickListener(it.callback)
-                    tv.setPaddingDp(5)
-                    tv.setSidesMarginDp(10)
+                    tv.setPaddingOnAllSidesDP(5)
+                    tv.setHorizontalMarginDP(10)
 
                     actionBarButtonsContainer.addView(tv)
                 }
