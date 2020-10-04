@@ -33,4 +33,51 @@
     <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="Text" parent="@android:style/Widget.TextView">
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="fontFamily">sans-serif-condensed</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="Header" parent="Text">
+        <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="Header.Medium" parent="Header">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
+    <style name="Title" parent="Text">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Title.Medium" parent="Title">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
+    <style name="Body1" parent="Text">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Body1.Medium" parent="Body1">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
+    <style name="Body2" parent="Text">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Body2.Medium" parent="Body2">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
+    <style name="Body3" parent="Text">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Body3.Medium" parent="Body3">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
 </resources>

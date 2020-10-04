@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">WeBooks</string>
     <string name="my_books">My Books</string>
+    <string name="no_books_yet">No books yet</string>
+    <string name="tap_the_plus_to_add_your_first_book">Tap the + to add your first book</string>
 </resources>

@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.mba.basescreens.BaseActivity"></activity>
+        <activity android:name="com.mba.basescreens.BaseActivity"
+            android:theme="@style/AppTheme"/>
 
     </application>
 
