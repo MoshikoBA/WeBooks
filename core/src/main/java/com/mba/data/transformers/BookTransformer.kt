@@ -2,6 +2,7 @@ package com.mba.data.transformers
 
 import com.mba.data.BookViewModel
 import com.mba.models.Book
+import com.mba.models.BookData
 
 class BookTransformer  : Transformer<Book, BookViewModel> {
 
@@ -17,7 +18,8 @@ class BookTransformer  : Transformer<Book, BookViewModel> {
             book.categories ?: arrayListOf(),
             book.pageCount ?: 0,
             book.imageURL,
-            book.avaregeRating ?: 0f
+            book.avaregeRating ?: 0f,
+            book.addedDate
         )
 
 }

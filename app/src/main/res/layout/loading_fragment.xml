@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="@dimen/margin_X3"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/myBooks"
+            style="@style/Body1.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:foreground="@drawable/ripple"
+            android:text="@string/my_books"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/myFriends"
+            style="@style/Body1.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_X3"
+            android:background="@color/dark_blue"
+            android:foreground="@drawable/ripple"
+            android:text="@string/my_friends"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/message"
+        style="@style/Header.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
         android:layout_gravity="center"
-        style="@style/Header.Medium"/>
+        android:text="@string/app_name" />
 
 </FrameLayout>

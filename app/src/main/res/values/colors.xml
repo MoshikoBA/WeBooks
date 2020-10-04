@@ -11,6 +11,8 @@
     <color name="red">#FA644B</color>
     <color name="yellow">#FFBE28</color>
     <color name="light_yellow">#FFEAB8</color>
+    <color name="gray_ab">#ABABAB</color>
+
     <!-- Other colors -->
     <color name="dark_green_911">#3F9911</color>
     <color name="transparent_green">#f6fef6</color>

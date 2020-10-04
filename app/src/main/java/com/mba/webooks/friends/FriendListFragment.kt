@@ -1,4 +1,4 @@
-package com.mba.webooks.books.booklist
+package com.mba.webooks.friends
 
 import android.graphics.Rect
 import android.os.Handler
@@ -12,8 +12,8 @@ import com.mba.views.EmptyStateConfig
 import com.mba.webooks.R
 import kotlinx.android.synthetic.main.layout_recycler_with_fab.*
 
-class BookListFragment : AbstractViewModelFragment<BookListFragmentViewModel>() {
-    val adapter = BookListFragmentAdapter()
+class FriendListFragment : AbstractViewModelFragment<FriendListFragmentViewModel>() {
+    val adapter = FriendListFragmentAdapter()
 
     override fun initializeViewModel() {
         viewModel.uiStatLiveData.observe(this, Observer {
@@ -23,7 +23,7 @@ class BookListFragment : AbstractViewModelFragment<BookListFragmentViewModel>() 
             }
         })
 
-        viewModel.booksLiveData.observe(this, Observer {
+        viewModel.friendsLiveData.observe(this, Observer {
             adapter.items = it
             recyclerViewHolder.showOrHideEmptyState(it.isEmpty())
         })
@@ -31,7 +31,7 @@ class BookListFragment : AbstractViewModelFragment<BookListFragmentViewModel>() 
 
     override val contentViewLayoutResId: Int = R.layout.layout_recycler_with_fab
 
-    override fun getName(): String = "Books"
+    override fun getName(): String = "Friends"
 
     override fun enableSwipeToRefresh() = true
 

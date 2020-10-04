@@ -1,6 +1,7 @@
 package com.mba.webooks
 
 import android.os.Bundle
+import com.mba.Core
 import com.mba.basescreens.BaseActivity
 import com.mba.utils.ScreenUtils
 import com.mba.webooks.loadingscreen.LoadingFragment
@@ -16,7 +17,7 @@ class MainActivity : BaseActivity() {
 //                .commitNow()
 //        }
 
-
+        Core.context = baseContext
         ScreenUtils.openScreen(LoadingFragment::class.java, this)
     }
 }

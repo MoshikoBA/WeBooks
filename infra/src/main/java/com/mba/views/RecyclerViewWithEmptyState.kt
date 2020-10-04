@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.mba.extensions.R
+import com.mba.extensions.gone
+import com.mba.extensions.show
 import com.mba.extensions.showOrHide
 import kotlinx.android.synthetic.main.layout_recycler_holder.view.*
 
@@ -15,6 +17,12 @@ class RecyclerViewWithEmptyState: FrameLayout {
         get() = recycler
 
     var emptyStateConfig: EmptyStateConfig? = null
+        set(value) {
+            field = value
+            emptyStateTitle.text = value?.title ?: ""
+            emptyStateSubtitle.text = value?.subtitle ?: ""
+            emptyStateImage.setImageResource(value?.imageRes ?: 0)
+        }
 
     constructor(context: Context?) : super(context!!) {
         init()
@@ -34,5 +42,13 @@ class RecyclerViewWithEmptyState: FrameLayout {
 
     fun showOrHideEmptyState(show: Boolean) {
         emptyState.showOrHide(show)
+    }
+
+    fun showLoading() {
+        progressBar.show()
+    }
+
+    fun showSuccess() {
+        progressBar.gone()
     }
 }

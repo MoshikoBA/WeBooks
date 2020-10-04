@@ -56,6 +56,7 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
 
         swipeToRefresh = baseView.findViewById(R.id.swipeToRefresh)
         swipeToRefresh.isEnabled = enableSwipeToRefresh()
+        swipeToRefresh.setOnRefreshListener { onSwipeToRefresh() }
         baseView.baseLayout.addView(view)
 
         return baseView
@@ -101,6 +102,10 @@ abstract class BaseFragment : DialogFragment(), BaseScreen {
     abstract fun enableSwipeToRefresh(): Boolean
 
     abstract fun initUi()
+
+    open fun onSwipeToRefresh() {
+        swipeToRefresh.isRefreshing = false
+    }
 
     open fun getProgressColor(): Int = R.color.colorPrimary
 

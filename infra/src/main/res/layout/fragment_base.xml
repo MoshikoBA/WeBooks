@@ -41,10 +41,12 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/toolbarTitle"
-                    style="@style/toolBarStyle"
+                    style="@style/Body1.Medium"
+                    android:gravity="center_vertical"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_X1"
                     tools:text="Title" />
 
                 <LinearLayout

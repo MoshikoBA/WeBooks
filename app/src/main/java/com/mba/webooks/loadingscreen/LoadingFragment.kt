@@ -5,6 +5,8 @@ import com.mba.basescreens.AbstractViewModelFragment
 import com.mba.utils.ScreenUtils
 import com.mba.webooks.R
 import com.mba.webooks.books.booklist.BookListFragment
+import com.mba.webooks.friends.FriendListFragment
+import kotlinx.android.synthetic.main.loading_fragment.*
 
 class LoadingFragment : AbstractViewModelFragment<LoadingFragmentViewModel>() {
 
@@ -17,9 +19,17 @@ class LoadingFragment : AbstractViewModelFragment<LoadingFragmentViewModel>() {
     override fun enableSwipeToRefresh() = false
 
     override fun initUi() {
-         Handler().postDelayed({
-            ScreenUtils.openScreen(BookListFragment::class.java, baseActivity, true)
-         }, 2000)
+        myBooks.setOnClickListener {
+            ScreenUtils.openScreen(BookListFragment::class.java, baseActivity, false)
+        }
+
+        myFriends.setOnClickListener {
+            ScreenUtils.openScreen(FriendListFragment::class.java, baseActivity, false)
+        }
+
+//         Handler().postDelayed({
+//            ScreenUtils.openScreen(BookListFragment::class.java, baseActivity, true)
+//         }, 1000)
     }
 
     override fun initializeViewModel() {

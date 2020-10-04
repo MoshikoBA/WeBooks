@@ -1,4 +1,4 @@
-package com.mba.webooks.books.booklist
+package com.mba.webooks.friends
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_my_book_list_item.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class BookListFragmentAdapter : BaseAdapter<BookViewModel>() {
+class FriendListFragmentAdapter : BaseAdapter<BookViewModel>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return BookViewHolder(

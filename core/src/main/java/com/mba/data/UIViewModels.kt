@@ -15,5 +15,6 @@ data class BookViewModel(
     val categories: ArrayList<BookCategory>,
     val pageCount: Int,
     val imageURL: String?,
-    val avaregeRating: Float?
+    val avaregeRating: Float?,
+    val addedDate: Long?
 )
